@@ -33,8 +33,9 @@ products = [
 #Step 1: Capture product IDs
 
 selected_id = input("Please input a product identifier:") #output is a string
-print(selected_id)
-print(type(selected_id))
+matching_product = [p for p in products if str(p["id"]) == str(selected_id)]
+print(matching_product)
+print(type(matching_product))
 
 #Step 2: Calculations on products
 #Step 3: Print Results
