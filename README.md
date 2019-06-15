@@ -74,9 +74,10 @@ From within the virtual environment, demonstrate your ability to run the Python 
 python shopping_cart.py
 ```
 #Guided Steps
-Step 1: Capture Product IDs
-Step 2: Use a loop to capture multiple user inputs
-Step 3: Reconfigure structure to match expected output
-Step 4: Print results to match expected output format
+Step 1: Import Packages using import datetime
+Step 2: Capture Product IDs
+Step 3: Use a loop to capture multiple user inputs
+Step 4: Reconfigure structure to match expected output
+Step 5: Print results to match expected output format
 
 If you see the provided "products" data structure, you're ready to move on to project development. This would be a great time to make any desired modifications to your project's "README.md" file (like adding instructions for how to setup and run the app like you've just done), and then make your first commit, with a message like "Setup the repo".

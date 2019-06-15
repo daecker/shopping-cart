@@ -1,6 +1,6 @@
 # shopping_cart.py
 
-#from pprint import pprint
+import datetime
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -25,15 +25,17 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-#print(products)
-# pprint(products)
-
-# TODO: write some Python code here to produce the desired output
 
 #Step 1: Capture product IDs
 
-total_price = 0
+checkout_start = datetime.datetime.now()
+subtotal_price = 0
+tax_rate = .08875
 selected_ids = []
+
+
+def to_usd(my_price):
+    return " (${0:.2f})".format(my_price)
 
 while True:
     selected_id = input("Please input a product identifier: ") #output is a string
@@ -51,9 +53,16 @@ while True:
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
-    total_price = total_price + matching_product["price"]
+    subtotal_price = subtotal_price + matching_product["price"]
     print("SELECTED PRODUCT: " + str(matching_product["name"]) + " " + str(matching_product["price"]))
 
+tax_amount = subtotal_price * tax_rate
+total_price = subtotal_price + tax_amount
+formated_checkout_time = checkout_start.strftime("%Y-%m-%d %I:%M %p")
+
+print("CHECKOUT TIME: " + formated_checkout_time)
+print("SUBTOTAL PRICE: " + str(subtotal_price))
+print("TAX (8.875%): " + str(tax_amount))
 print("TOTAL PRICE: " + str(total_price))
 
 
