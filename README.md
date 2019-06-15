@@ -73,11 +73,48 @@ From within the virtual environment, demonstrate your ability to run the Python 
 ```sh
 python shopping_cart.py
 ```
-#Guided Steps
-Step 1: Import Packages using import datetime
-Step 2: Capture Product IDs
-Step 3: Use a loop to capture multiple user inputs
-Step 4: Reconfigure structure to match expected output
-Step 5: Print results to match expected output format
 
 If you see the provided "products" data structure, you're ready to move on to project development. This would be a great time to make any desired modifications to your project's "README.md" file (like adding instructions for how to setup and run the app like you've just done), and then make your first commit, with a message like "Setup the repo".
+
+#Guided Steps
+Step 1: Import datetime package using import datetime
+Step 2: Write code to apture Product IDs
+Step 3: Use a loop to capture multiple user inputs
+Step 4: Restructure code to match expected output (hint: first ask for IDs, then print output)
+Step 5: Print results to match expected output format
+
+If you need help: follow the screencast here:
+https://www.youtube.com/watch?v=3BaGb-1cIr0&feature=youtu.be
+
+# End Result Sample
+
+Please input a product identifier: 1
+Please input a product identifier: 8
+Please input a product identifier: 6
+Please input a product identifier: 8
+Please input a product identifier: 8
+Please input a product identifier: 16
+Please input a product identifier: 12
+Please input a product identifier: DONE
+> ---------------------------------
+> GREEN FOODS GROCERY
+> WWW.GREEN-FOODS-GROCERY.COM
+> ---------------------------------
+> CHECKOUT AT: 2019-06-06 11:31 AM
+> ---------------------------------
+> SELECTED PRODUCTS:
+>  ... Chocolate Sandwich Cookies ($3.50)
+>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
+>  ... Dry Nose Oil ($21.99)
+>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
+>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
+>  ... Mint Chocolate Flavored Syrup ($4.50)
+>  ... Chocolate Fudge Layer Cake ($18.50)
+> ---------------------------------
+> SUBTOTAL: $61.24
+> TAX: $5.35
+> TOTAL: $66.59
+> ---------------------------------
+> THANKS, SEE YOU AGAIN SOON!
+> ---------------------------------
+

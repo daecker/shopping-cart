@@ -26,74 +26,62 @@ products = [
 ] # based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
 
-#Step 1: Capture product IDs
+#Step 1: Define Variables
 
+grocery_name = "ECKER GROCERY"
+grocery_website = "WWW.ECKERGROCERY.COM"
+checkout_message = "THANK YOU FOR VISITING! EAT WELL AND COME BACK SOON"
 checkout_start = datetime.datetime.now()
+formated_checkout_time = checkout_start.strftime("%Y-%m-%d %I:%M %p")
 subtotal_price = 0
-tax_rate = .08875
+tax_rate = .0875
 selected_ids = []
+all_id_list = [id["id"] for id in products]
+products_count = len(products)
 
+#Step 2: Define Fuctions
 
 def to_usd(my_price):
-    return " (${0:.2f})".format(my_price)
+    return "${0:.2f}".format(my_price)
 
+#Step 3: User Input Selections + validation + print
 while True:
-    selected_id = input("Please input a product identifier: ") #output is a string
+    selected_id = input("Please input a product identifier or 'DONE': ") #output is a string
 
     if selected_id == "DONE":
         break
+    #elif int(selected_id) > products_count: #line assumes all product IDs are unique and chronological.
+    #    print("Error: Please enter a valid ID")
+    elif int(selected_id) not in all_id_list: #validation of selected_id
+        print("Error: Please enter a valid ID")
     else:
         selected_ids.append(selected_id)
 
 
-#Step 2: Calculations on products
+print("---------------------------------")
+print(grocery_name)
+print(grocery_website)
+print("---------------------------------")
+print("CHECKOUT TIME: " + formated_checkout_time)
+print("---------------------------------")
+print("SELECTED PRODUCTS:")
 
-#Step 3: Print Results
-
+#Step 4: Operations on user inputs
 for selected_id in selected_ids:
     matching_products = [p for p in products if str(p["id"]) == str(selected_id)]
     matching_product = matching_products[0]
     subtotal_price = subtotal_price + matching_product["price"]
-    print("SELECTED PRODUCT: " + str(matching_product["name"]) + " " + str(matching_product["price"]))
+    print(" ... " + str(matching_product["name"]) + " (" + to_usd(matching_product["price"]) + ")")
+
 
 tax_amount = subtotal_price * tax_rate
 total_price = subtotal_price + tax_amount
-formated_checkout_time = checkout_start.strftime("%Y-%m-%d %I:%M %p")
 
-print("CHECKOUT TIME: " + formated_checkout_time)
-print("SUBTOTAL PRICE: " + str(subtotal_price))
-print("TAX (8.875%): " + str(tax_amount))
-print("TOTAL PRICE: " + str(total_price))
-
-
-#END RESULT
-# #(shopping-env)  --->> python shopping_cart.py
-#Please input a product identifier: 1
-#Please input a product identifier: 8
-#Please input a product identifier: 6
-#Please input a product identifier: 8
-#Please input a product identifier: 8
-#Please input a product identifier: 16
-#Please input a product identifier: 12
-#Please input a product identifier: DONE
-##> ---------------------------------
-##> GREEN FOODS GROCERY
-##> WWW.GREEN-FOODS-GROCERY.COM
-##> ---------------------------------
-##> CHECKOUT AT: 2019-06-06 11:31 AM
-##> ---------------------------------
-##> SELECTED PRODUCTS:
-##>  ... Chocolate Sandwich Cookies ($3.50)
-##>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
-##>  ... Dry Nose Oil ($21.99)
-##>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
-##>  ... Cut Russet Potatoes Steam N' Mash ($4.25)
-##>  ... Mint Chocolate Flavored Syrup ($4.50)
-##>  ... Chocolate Fudge Layer Cake ($18.50)
-##> ---------------------------------
-##> SUBTOTAL: $61.24
-##> TAX: $5.35
-##> TOTAL: $66.59
-##> ---------------------------------
-##> THANKS, SEE YOU AGAIN SOON!
-##> ---------------------------------
+#Step 5: Print final results
+print("---------------------------------")
+print("SUBTOTAL PRICE: " + to_usd(subtotal_price))
+print("TAX (8.75%): " + to_usd(tax_amount))
+print("TOTAL PRICE: " + to_usd(total_price))
+print("---------------------------------")
+print(checkout_message)
+print("---------------------------------")
