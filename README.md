@@ -73,5 +73,8 @@ From within the virtual environment, demonstrate your ability to run the Python 
 ```sh
 python shopping_cart.py
 ```
+#Guided Steps
+Step 1: Capture Product IDs
+Step 2: Use While Loop to create ongoing process
 
 If you see the provided "products" data structure, you're ready to move on to project development. This would be a great time to make any desired modifications to your project's "README.md" file (like adding instructions for how to setup and run the app like you've just done), and then make your first commit, with a message like "Setup the repo".
