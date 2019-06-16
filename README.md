@@ -68,9 +68,10 @@ pip install pytest
 ```
 
 From within the virtual enviornment, install the sendgrid package
-'''sh
+
+```sh
 pip install sendgrid==6.0.5
-'''
+```
 
 
 # Usage
