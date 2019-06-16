@@ -125,5 +125,3 @@ TOTAL: $66.59
 THANKS, SEE YOU AGAIN SOON!
 ---------------------------------
 ```
-
-API KEY: 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
