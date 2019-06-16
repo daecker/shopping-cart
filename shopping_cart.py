@@ -2,7 +2,7 @@
 
 import datetime
 import os
-from dotenv import load_dotenv
+from dotenv import load_dotenv  #email sends without issue, but not sure why from is showing error
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
@@ -10,7 +10,7 @@ load_dotenv()
 
 
 SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "OOPS, please set env var called 'SENDGRID_API_KEY'")
-MY_ADDRESS = os.environ.get("MY_EMAIL_ADDRESS", "OOPS, please set env var called 'MY_EMAIL_ADDRESS'")   
+
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -98,11 +98,12 @@ print("---------------------------------")
 
 print_receipt = input("Would you like an email receipt? y/n: ")
 if print_receipt == "y":
+    MY_ADDRESS = input("Please enter customer email address: ")
     client = SendGridAPIClient(SENDGRID_API_KEY)
     print("CLIENT:", type(client))
-    subject = "Your Receipt"
+    subject = "Your Receipt from " + grocery_name
 
-    html_content = "Hello World"
+    html_content = "Thank you for shopping with us today! You spent " + to_usd(total_price) + " (including tax) at " + formated_checkout_time + "."
     print("HTML", html_content)
 
     message = Mail(from_email=MY_ADDRESS, to_emails=MY_ADDRESS, subject=subject, html_content=html_content)

@@ -126,5 +126,3 @@ THANKS, SEE YOU AGAIN SOON!
 ---------------------------------
 ```
 
-SENDGRID_API_KEY = "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"
-MY_EMAIL_ADDRESS = "daecker@gmail.com"
