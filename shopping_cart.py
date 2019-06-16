@@ -3,7 +3,6 @@
 import datetime
 import os
 from dotenv import load_dotenv
-
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
 
