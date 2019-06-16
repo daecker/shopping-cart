@@ -67,6 +67,12 @@ From within the virtual environment, install the pytest package:
 pip install pytest
 ```
 
+From within the virtual enviornment, install the sendgrid package
+'''sh
+pip install sendgrid==6.0.5
+'''
+
+
 # Usage
 From within the virtual environment, demonstrate your ability to run the Python script from the command-line:
 
@@ -77,8 +83,7 @@ python shopping_cart.py
 If you see the provided "products" data structure, you're ready to move on to project development. This would be a great time to make any desired modifications to your project's "README.md" file (like adding instructions for how to setup and run the app like you've just done), and then make your first commit, with a message like "Setup the repo".
 
 # Guided Steps
-Step 1: Import datetime package using import datetime
-`
+Step 1: Import datetime package using import datetime   
 Step 2: Write code to apture Product IDs
 Step 3: Use a loop to capture multiple user inputs
 Step 4: Restructure code to match expected output (hint: first ask for IDs, then print output)
@@ -120,3 +125,5 @@ TOTAL: $66.59
 THANKS, SEE YOU AGAIN SOON!
 ---------------------------------
 ```
+
+API KEY: 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
