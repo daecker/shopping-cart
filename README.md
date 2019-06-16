@@ -78,6 +78,7 @@ If you see the provided "products" data structure, you're ready to move on to pr
 
 # Guided Steps
 Step 1: Import datetime package using import datetime
+`
 Step 2: Write code to apture Product IDs
 Step 3: Use a loop to capture multiple user inputs
 Step 4: Restructure code to match expected output (hint: first ask for IDs, then print output)
