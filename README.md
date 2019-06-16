@@ -76,7 +76,7 @@ python shopping_cart.py
 
 If you see the provided "products" data structure, you're ready to move on to project development. This would be a great time to make any desired modifications to your project's "README.md" file (like adding instructions for how to setup and run the app like you've just done), and then make your first commit, with a message like "Setup the repo".
 
-#Guided Steps
+# Guided Steps
 Step 1: Import datetime package using import datetime
 Step 2: Write code to apture Product IDs
 Step 3: Use a loop to capture multiple user inputs
