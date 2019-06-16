@@ -1,6 +1,16 @@
 # shopping_cart.py
 
 import datetime
+import os
+from dotenv import load_dotenv
+
+from sendgrid import SendGridAPIClient
+from sendgrid.helpers.mail import Mail
+
+load_dotenv()
+
+SENDGRID_API_KEY = os.environ.get("SENDGRID_API_KEY", "OOPS, please set env var called 'SENDGRID_API_KEY'")
+MY_ADDRESS = os.environ.get("MY_EMAIL_ADDRESS", "OOPS, please set env var called 'MY_EMAIL_ADDRESS'")   
 
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
@@ -85,3 +95,27 @@ print("TOTAL PRICE: " + to_usd(total_price))
 print("---------------------------------")
 print(checkout_message)
 print("---------------------------------")
+
+print_receipt = input("Would you like an email receipt? y/n: ")
+if print_receipt == "y":
+    client = SendGridAPIClient(SENDGRID_API_KEY)
+    print("CLIENT:", type(client))
+    subject = "Your Receipt"
+
+    html_content = "Hello World"
+    print("HTML", html_content)
+
+    message = Mail(from_email=MY_ADDRESS, to_emails=MY_ADDRESS, subject=subject, html_content=html_content)
+    try:
+        response = client.send(message)
+
+        print("RESPONSE:", type(response))
+        print(response.status_code)
+        print(response.body)
+        print(response.headers)
+    
+    except Exception as e:
+        print("OOPS", e.message)
+else:
+    print("THANK YOU")
+    exit
